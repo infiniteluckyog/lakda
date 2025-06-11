@@ -12,9 +12,9 @@ def stripechk():
     proxy_param = request.args.get("proxy")
     card = urllib.parse.unquote(card)
     if proxy_param:
-        url = f"https://api.voidapi.xyz/v2/stripe_auth?key={VOIDAPI_KEY}&card={card}&proxy={proxy_param}"
+        url = f"https://api.voidapi.xyz/v2/stripe_charge?key={VOIDAPI_KEY}&card={card}&proxy={proxy_param}"
     else:
-        url = f"https://api.voidapi.xyz/v2/stripe_auth?key={VOIDAPI_KEY}&card={card}"
+        url = f"https://api.voidapi.xyz/v2/stripe_charge?key={VOIDAPI_KEY}&card={card}"
     headers = {"User-Agent": "Mozilla/5.0"}
     try:
         r = requests.get(url, headers=headers, timeout=15)
